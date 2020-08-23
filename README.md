@@ -49,4 +49,41 @@ the upcoming fashion trends and forecast in this way.
 <p align="center"> <img src = ""\> <\p>
 
 
-###
+- For our Recommendation system we use Deep Learning CNN model (EfficientNet-B3 model).
+- Given an input image the CNN produces a 2304 vector
+- The hope is that our model can learn a good enough embedding space, so that similar clothing items should lie close together.
+
+<p align="center"> <img src = ""\> <\p>
+  
+  
+### Training the model
+- To learn a good embedding space, we used triplet siamese network
+- A triplet siamese network is trained with a group of 3 images i.e two siilar images (anchor and positive) and one dissimilar image (negative). The network has shared weights. For each image an embedding is generated. Then these three embeddings are given to the hinge loss function which is responsible for pushing the embeddings of anchor and positive images together and it pushes away the negative embedding.
+
+<p align="center"> <img src = ""\> <\p>
+  
+ - By training on good triplets, model can learn to group together clothing items with similar patterns and features.
+ 
+ 
+ ## Dataset 
+ - The dataset we use is the [DeepFashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html) dataset. DeepFashion is a large clothing database. This database has consumer shop pairs for each product. That means for each clothing item, the dataset contains well posed shop photos and real world consumer photos.
+ 
+<p align="center"> <img src = ""\> <\p> 
+ 
+- Our model is only trained on `mens T-shirts`. So we used only mens images from this dataset.
+- To generate/mine [triplets](https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/Triplet_mining.ipynb) we used the shop-consumer pairs. We took consumer images as anchors and shop images as positives. This is because anchors resemble real world images extracted from social media and positives resemble shop images obtained from Fashion portals.
+- For the negatives, for each anchor-postive pair we sampled three in-class negatives (same category but different product) and two out-class negatives (different categories)
+
+<p align="center"> <img src = ""\> <\p> 
+  
+- Link to [DeepFashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html)
+
+## References
+- [Deep Learning based Large Scale Visual Recommendation and
+Search for E-Commerce](https://arxiv.org/pdf/1703.02344v1.pdf)
+- [Street Style Research Paper](https://arxiv.org/abs/1706.01869)
+- [Using Artificial Intelligence to Analyze Fashion Trends](https://arxiv.org/pdf/2005.00986.pdf)  
+- [FashionPedia](https://arxiv.org/pdf/2004.12276.pdf)
+- https://fashionpedia.github.io/home/index.html 
+  
+
