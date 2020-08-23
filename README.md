@@ -23,7 +23,7 @@ a scalable tech solution to extract winning designs of apparels to design upcomi
 - Images extracted from these platforms indicate what is currently in Fashion. Using searches like `fashion week`, `new york fashion week` and `london fashion week` we can also spot 
 the upcoming fashion trends and forecast in this way.
 
-<p align="center"> <img src = ""\> <\p>
+<p align="center"> <img src = "https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/images/1.JPG"\> </p>
 
 
 ### Scrape images from Online Fashion Portals
@@ -46,35 +46,33 @@ the upcoming fashion trends and forecast in this way.
 - We feed `trendy clothing items from social media` to the recommender system.
 - The job of the recommender system is to find the most similar images from the images obtained from `Online Fashion Portals`
 
-<p align="center"> <img src = ""\> <\p>
+<p align="center"> <img src = "https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/images/2.JPG"\> </p>
 
 
 - For our Recommendation system we use Deep Learning CNN model (EfficientNet-B3 model).
 - Given an input image the CNN produces a 2304 vector
 - The hope is that our model can learn a good enough embedding space, so that similar clothing items should lie close together.
 
-<p align="center"> <img src = ""\> <\p>
+<p align="center"> <img src = "https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/images/3.JPG"\> </p>
   
   
 ### Training the model
 - To learn a good embedding space, we used triplet siamese network
 - A triplet siamese network is trained with a group of 3 images i.e two siilar images (anchor and positive) and one dissimilar image (negative). The network has shared weights. For each image an embedding is generated. Then these three embeddings are given to the hinge loss function which is responsible for pushing the embeddings of anchor and positive images together and it pushes away the negative embedding.
 
-<p align="center"> <img src = ""\> <\p>
+<p align="center"> <img src = "https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/images/4.JPG"\> </p>
   
  - By training on good triplets, model can learn to group together clothing items with similar patterns and features.
  
  
  ## Dataset 
  - The dataset we use is the [DeepFashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html) dataset. DeepFashion is a large clothing database. This database has consumer shop pairs for each product. That means for each clothing item, the dataset contains well posed shop photos and real world consumer photos.
- 
-<p align="center"> <img src = ""\> <\p> 
- 
+  
 - Our model is only trained on `mens T-shirts`. So we used only mens images from this dataset.
 - To generate/mine [triplets](https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/Triplet_mining.ipynb) we used the shop-consumer pairs. We took consumer images as anchors and shop images as positives. This is because anchors resemble real world images extracted from social media and positives resemble shop images obtained from Fashion portals.
 - For the negatives, for each anchor-postive pair we sampled three in-class negatives (same category but different product) and two out-class negatives (different categories)
 
-<p align="center"> <img src = ""\> <\p> 
+<p align="center"> <img src = "https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/images/5.JPG"\> </p> 
   
 - Link to [DeepFashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html)
 
