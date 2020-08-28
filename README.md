@@ -76,6 +76,14 @@ the upcoming fashion trends and forecast in this way.
   
 - Link to [DeepFashion](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html)
 
+## Results
+- *First image is the query image and corresponding 4 images in each row are the recommended images*
+- *These results were performed on a test dataset, not on images from social media and websites*
+
+<p align="center"> <img src = "https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/images/6.JPG"\> </p> 
+<p align="center"> <img src = "https://github.com/mananm98/Fashion-Trend-Intelligence-System/blob/master/images/7.JPG"\> </p> 
+
+
 ## References
 - [Deep Learning based Large Scale Visual Recommendation and
 Search for E-Commerce](https://arxiv.org/pdf/1703.02344v1.pdf)
